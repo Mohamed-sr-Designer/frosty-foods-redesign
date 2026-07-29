@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Frosty Foods — Premium Egyptian IQF Fruits & Vegetables</title>
 <meta name="description" content="Frosty Foods — premium Egyptian IQF frozen fruits & vegetables. Farm-frozen in hours, exported to 50+ countries. BRC, ISO 22000, FDA certified. Retail & bulk.">
-<link rel="icon" type="image/png" href="assets/img/logo.png">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
 <meta property="og:title" content="Frosty Foods — Premium Egyptian IQF Fruits & Vegetables">
 <meta property="og:description" content="Farm-frozen in hours, fresh for months. IQF fruits & vegetables exported to 50+ countries. BRC · ISO 22000 · FSSC 22000 · FDA · Kosher.">
 <meta property="og:image" content="assets/img/misc/hero-poster.jpg">
@@ -409,6 +409,9 @@ html[dir="rtl"] .pillar::after{--tx:right}
 .prod-img{position:relative;aspect-ratio:4/4.6;overflow:hidden;background:var(--ice-mist)}
 .prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .prod-card:hover .prod-img img{transform:scale(1.07)}
+.prod-img.pkg{background:radial-gradient(120% 90% at 50% 12%,#fff 60%,#EAF5FC 100%)}
+.prod-img.pkg img{object-fit:contain;padding:10px 8px 4px}
+.prod-card:hover .prod-img.pkg img{transform:scale(1.05)}
 .prod-img::after{
   content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.5) 48%,transparent 62%);
   transform:translateX(-120%);transition:transform .9s var(--ease);
@@ -801,6 +804,8 @@ html[lang="ar"] .cbar-item b{letter-spacing:.02em}
 .modal-close:hover{background:var(--berry);color:#fff;transform:rotate(90deg)}
 .modal-media{position:relative;min-height:320px}
 .modal-media img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.modal-media.pkg{background:radial-gradient(120% 80% at 50% 20%,#fff 55%,#E7F3FB 100%)}
+.modal-media.pkg img{object-fit:contain;padding:22px}
 .modal-media .m-season{
   position:absolute;bottom:16px;inset-inline-start:16px;z-index:2;padding:7px 15px;border-radius:99px;
   font-size:.74rem;font-weight:800;background:rgba(255,255,255,.92);color:var(--navy);backdrop-filter:blur(6px);
@@ -1517,49 +1522,49 @@ html[lang="ar"] .m-block .mb-label{letter-spacing:.02em}
 <script>
 /* ================= DATA ================= */
 const PRODUCTS=[
- {id:'strawberry',en:'Strawberry',ar:'فراولة',cat:'fruit',img:'assets/img/products/frozen-strawberries.jpg',
+ {id:'strawberry',en:'Strawberry',ar:'فراولة',cat:'fruit',img:'assets/img/products/pkg-strawberry.webp',pkg:1,
   descEn:'Frozen at peak ripeness — an excellent source of vitamin C and antioxidants for immune and skin health. Perfect for jams, smoothies, ice cream and baking.',
   descAr:'مجمدة في ذروة النضج — مصدر ممتاز لفيتامين C ومضادات الأكسدة لصحة المناعة والبشرة. مثالية للمربى والسموذي والآيس كريم والحلويات.',
   cuts:[['Whole calibrated','كاملة معايَرة'],['Whole uncalibrated','كاملة غير معايَرة'],['Quarters','أرباع'],['Diced','مكعبات']],
   packs:['400 g','1 kg','2.5 kg','10 kg'],vits:['C','K','E',['Folate','فولات'],['Potassium','بوتاسيوم']],season:[1,2,3,4,5,6]},
- {id:'pomegranate',en:'Pomegranate',ar:'رمان',cat:'fruit',img:'assets/img/products/frozen-pomegranate.jpg',
+ {id:'pomegranate',en:'Pomegranate',ar:'رمان',cat:'fruit',img:'assets/img/products/pkg-pomegranate.webp',pkg:1,
   descEn:'Sweet, crunchy yet juicy IQF kernels — a clean, ready-to-eat treat all year long. No peeling, no mess.',
   descAr:'حبوب رمان مجمدة حلوة ومقرمشة وغنية بالعصارة — جاهزة للاستخدام طوال العام. بلا تقشير ولا فوضى.',
   cuts:[['Kernels','حبوب (لُب)']],packs:['400 g','1 kg','2.5 kg','10 kg'],vits:['K','C',['Fiber','ألياف'],['Folate','فولات']],season:[9,10]},
- {id:'artichokes',en:'Artichokes',ar:'خرشوف',cat:'veg',img:'assets/img/products/frozen-artichokes-1.jpg',
+ {id:'artichokes',en:'Artichokes',ar:'خرشوف',cat:'veg',img:'assets/img/products/pkg-artichokes.webp',pkg:1,
   descEn:'Bottoms or quarters at high-quality standards — ready for frying, sautéing, stuffing or grilling. Also available in brine.',
   descAr:'قلوب أو أرباع بأعلى معايير الجودة — جاهزة للقلي أو التشويح أو الحشو أو الشوي. متوفر أيضًا في محلول ملحي.',
   cuts:[['Bottoms','قلوب'],['Quarters','أرباع']],packs:['400 g','1 kg','2.5 kg','10 kg'],vits:['A','C','K','E',['Iron','حديد']],season:[1,2,3,4],brine:true},
- {id:'mixedveg',en:'Mixed Vegetables',ar:'خضار مشكلة',cat:'veg',img:'assets/img/products/frozen-mixed-vegetables.jpg',
+ {id:'mixedveg',en:'Mixed Vegetables',ar:'خضار مشكلة',cat:'veg',img:'assets/img/products/pkg-mixedveg.webp',pkg:1,
   descEn:'Green beans, peas and carrots in one balanced blend — a side dish or a full meal base, ready in under 20 minutes.',
   descAr:'فاصوليا خضراء وبازلاء وجزر في خلطة متوازنة — طبق جانبي أو أساس وجبة كاملة، جاهزة في أقل من 20 دقيقة.',
   cuts:[['Beans + peas + carrots','فاصوليا + بازلاء + جزر']],packs:['400 g','1 kg','2.5 kg','10 kg'],vits:['A','B6','C','K'],season:[1,2,3,4,5,6,7,8,9,10,11,12]},
- {id:'broccoli',en:'Broccoli',ar:'بروكلي',cat:'veg',img:'assets/img/products/frozen-broccoli.jpg',
+ {id:'broccoli',en:'Broccoli',ar:'بروكلي',cat:'veg',img:'assets/img/products/pkg-broccoli.webp',pkg:1,
   descEn:'Premium florets, frozen to preserve nutrients, natural appearance and safety — low in calories, big on antioxidants.',
   descAr:'زهرات فاخرة، مجمدة للحفاظ على العناصر الغذائية والمظهر الطبيعي والسلامة — قليلة السعرات وغنية بمضادات الأكسدة.',
   cuts:[['Florets','زهرات']],packs:['400 g','1 kg','2.5 kg','10 kg'],vits:['E','C','K','A',['Calcium','كالسيوم']],season:[1,2,12]},
- {id:'molokhia',en:'Molokhia',ar:'ملوخية',cat:'veg',img:'assets/img/products/frozen-molokhia.jpg',
+ {id:'molokhia',en:'Molokhia',ar:'ملوخية',cat:'veg',img:'assets/img/products/pkg-molokhia.webp',pkg:1,
   descEn:'The rich oriental taste you love — farmed and frozen with 30+ vitamins, minerals and organic compounds intact.',
   descAr:'الطعم الشرقي الغني الذي تحبه — مزروعة ومجمدة مع أكثر من 30 فيتامينًا ومعدنًا ومركبًا عضويًا محفوظًا.',
   cuts:[['Minced','مفرومة'],['Leaves','ورق']],packs:['400 g'],vits:['A','B6','C','E','K',['Iron','حديد']],season:[6,7,8,9]},
- {id:'greenpeas',en:'Green Peas',ar:'بازلاء خضراء',cat:'veg',img:'assets/img/products/frozen-peas.jpg',
+ {id:'greenpeas',en:'Green Peas',ar:'بازلاء خضراء',cat:'veg',img:'assets/img/products/pkg-greenpeas.webp',pkg:1,
   descEn:'Picked and frozen with technology that locks in sweetness and crispness — simply the best out there.',
   descAr:'تُقطف وتُجمَّد بتقنية تحفظ حلاوتها وقرمشتها — ببساطة الأفضل في السوق.',
   cuts:[['Whole','حبوب كاملة']],packs:['400 g','1 kg','2.5 kg','10 kg'],vits:['K','C','A',['Folate','فولات'],['Iron','حديد']],season:[1,2,12]},
- {id:'spinach',en:'Spinach',ar:'سبانخ',cat:'veg',img:'assets/img/products/frozen-spinach.jpg',
+ {id:'spinach',en:'Spinach',ar:'سبانخ',cat:'veg',img:'assets/img/products/pkg-spinach.webp',pkg:1,
   descEn:'Especially high in vitamins K, C and B2 for cell growth and function — chopped or whole leaves.',
   descAr:'غنية بشكل خاص بفيتامينات K وC وB2 لنمو الخلايا ووظائفها — مفرومة أو ورقًا كاملًا.',
   cuts:[['Chopped','مفرومة'],['Leaves','ورق']],packs:['400 g'],vits:['K','C','B2','A',['Iron','حديد']],season:[1,11,12]},
- {id:'okra',en:'Okra',ar:'بامية',cat:'veg',img:'assets/img/products/frozen-okra.jpg',
+ {id:'okra',en:'Okra',ar:'بامية',cat:'veg',img:'assets/img/products/pkg-okra.webp',pkg:1,
   descEn:'The warm feeling and true flavour of okra, any time of year — graded by size from Extra to Two.',
   descAr:'الإحساس الدافئ والطعم الحقيقي للبامية في أي وقت من العام — مصنفة بالحجم من إكسترا حتى درجة 2.',
   cuts:[['Extra (0–2.5)','إكسترا (0–2.5)'],['Zero (2.5–3.5)','زيرو (2.5–3.5)'],['One (3.5–4.5)','واحد (3.5–4.5)'],['Two (4.5–5.5)','اثنان (4.5–5.5)']],
   packs:['400 g','1 kg','2.5 kg','10 kg'],vits:['A','C',['Calcium','كالسيوم'],['Fiber','ألياف']],season:[6,7,8,9]},
- {id:'colocasia',en:'Colocasia',ar:'قلقاس',cat:'veg',img:'assets/img/products/frozen-colocasia.jpg',
+ {id:'colocasia',en:'Colocasia',ar:'قلقاس',cat:'veg',img:'assets/img/products/pkg-colocasia.webp',pkg:1,
   descEn:'Cleanly prepared, diced and frozen for the taste our customers deserve — a staple of traditional kitchens.',
   descAr:'مُنظّف ومُقطّع ومجمد بعناية للطعم الذي يستحقه عملاؤنا — عنصر أساسي في المطبخ التقليدي.',
   cuts:[['Diced','مكعبات']],packs:['400 g','1 kg','2.5 kg','10 kg'],vits:['B6','C','E',['Potassium','بوتاسيوم']],season:[1,11,12]},
- {id:'greenbeans',en:'Cut Green Beans',ar:'فاصوليا خضراء مقطعة',cat:'veg',img:'assets/img/products/frozen-cut-green-beans.jpg',
+ {id:'greenbeans',en:'Cut Green Beans',ar:'فاصوليا خضراء مقطعة',cat:'veg',img:'assets/img/products/pkg-greenbeans.webp',pkg:1,
   descEn:'Incomparable quality, ready to steam and perfectly cooked in minutes — a satisfying crunch every time.',
   descAr:'جودة لا تُضاهى، جاهزة للطهي على البخار وتنضج في دقائق — قرمشة مُرضية في كل مرة.',
   cuts:[['Cut','مقطعة'],['Whole','كاملة']],packs:['400 g','1 kg','2.5 kg','10 kg'],vits:['K','C','A',['Folate','فولات'],['Iron','حديد']],season:[5,6,10,11]},
@@ -1567,7 +1572,7 @@ const PRODUCTS=[
   descEn:'A great source of plant protein, fibre and folate — single or double peeled for every kind of dish.',
   descAr:'مصدر رائع للبروتين النباتي والألياف والفولات — مقشور مرة أو مرتين ليناسب كل الأطباق.',
   cuts:[['Single peeled','مقشور مرة'],['Double peeled','مقشور مرتين']],packs:['400 g','1 kg','2.5 kg','10 kg'],vits:['A','B6','C','D',['Iron','حديد']],season:[2,3]},
- {id:'cauliflower',en:'Cauliflower',ar:'قرنبيط',cat:'veg',img:'assets/img/products/frozen-cauliflour.jpg',
+ {id:'cauliflower',en:'Cauliflower',ar:'قرنبيط',cat:'veg',img:'assets/img/products/pkg-cauliflower.webp',pkg:1,
   descEn:'All the traits you love about fresh cauliflower — flavour, colour and nutrients — with the convenience of frozen.',
   descAr:'كل ما تحبه في القرنبيط الطازج — النكهة واللون والعناصر الغذائية — مع سهولة المنتج المجمد.',
   cuts:[['Florets','زهرات']],packs:['400 g','1 kg','2.5 kg','10 kg'],vits:['K','C','B6',['Folate','فولات']],season:[1,2,12]}
@@ -1621,9 +1626,9 @@ function renderGrid(f){
     const inS=p.season.includes(NOW_M);
     const catL=p.cat==='fruit'?T('Frozen fruit','فاكهة مجمدة'):T('Frozen vegetable','خضار مجمد');
     return `<article class="prod-card ${show?'':'hide'} rv in" data-id="${p.id}" tabindex="0" role="button" aria-label="${T(p.en,p.ar)}">
-      <div class="prod-img">
+      <div class="prod-img ${p.pkg?'pkg':''}">
         <span class="prod-season ${inS?'now':''}">${inS?T('In season','في الموسم'):T('From stock','من المخزون')}</span>
-        <img src="${p.img}" alt="${p.en}" loading="lazy">
+        <img src="${p.img}" alt="${T(p.en,p.ar)} — Frosty Foods retail pack" loading="lazy">
       </div>
       <div class="prod-info">
         <div><b>${T(p.en,p.ar)}</b><span>${catL}${p.brine?' · '+T('also in brine','ومتوفر في محلول ملحي'):''}</span></div>
@@ -1659,6 +1664,7 @@ function openModal(id){
   const p=PRODUCTS.find(x=>x.id===id);if(!p)return;
   document.getElementById('mImg').src=p.img;
   document.getElementById('mImg').alt=p.en;
+  document.querySelector('.modal-media').classList.toggle('pkg',!!p.pkg);
   document.getElementById('mCat').textContent=p.cat==='fruit'?T('Frozen Fruits','فواكه مجمدة'):T('Frozen Vegetables','خضروات مجمدة');
   document.getElementById('mName').textContent=T(p.en,p.ar);
   document.getElementById('mDesc').textContent=T(p.descEn,p.descAr);
