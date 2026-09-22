@@ -22,13 +22,13 @@ Version 2 moves the site from a consumer-led story to a **global B2B trade prese
 | 01 | Company | Mission, values and the New Borg El Arab facility (aerial photo) |
 | 02 | Production | IQF vs. block freezing, and a six-step process from farm to reefer, over the production-line photo |
 | 03 | Product range | The **14 new retail packs**. Each pack has a separate front and back image, with a flip per card and a global Front/Back switch. Each card opens a spec sheet (cuts and grades, formats, harvest window, storage, HS heading). Includes the new French Fries SKU |
-| 04 | Seasonality | Harvest calendar with the current month highlighted |
+| 04 | Seasonality | Interactive harvest planner: pick a month to see crops in harvest and what opens next |
 | 05 | Solutions | Retail, private label, food service & bulk, industrial drums |
 | 06 | Packing & shipping | Carton formats, drum specs, container loads, incoterms |
-| 07 | Markets | Dotted world map built from the original export map, with routes from Alexandria |
-| 08 | Quality | Certifications and the quality pipeline |
+| 07 | Markets | Contained panel with a dotted world map and region filter highlighting export routes |
+| 08 | Quality | Six-certification rail, four-step quality flow and the IQF promise |
 | 09 | RFQ | Order flow and a structured quotation form. Products added to "Quote" from any card are pre-selected |
-| 10 | FAQ | Buyer questions, plus a small path for consumers |
+| 10 | FAQ | Master–detail buyer FAQ (accordion on mobile), plus a small consumer path |
 
 ## Assets
 
