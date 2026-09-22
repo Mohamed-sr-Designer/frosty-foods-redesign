@@ -19,7 +19,7 @@ Version 2 moves the site from a consumer-led story to a **global B2B trade prese
 |---|---|---|
 | — | Hero | The original Frosty video, kept as-is, plus key figures and a live "in season now" line driven by the current month |
 | — | Trust strip | Six certifications and an exhibitions marquee (Gulfood, SIAL, Anuga, World Food) |
-| 01 | Company | Mission, values and the New Borg El Arab facility (aerial photo) |
+| 01 | Company | Mission, values, facility photography and company facts |
 | 02 | Production | IQF vs. block freezing, and a six-step process from farm to reefer, over the production-line photo |
 | 03 | Product range | The **14 new retail packs**. Each pack has a separate front and back image, with a flip per card and a global Front/Back switch. Each card opens a spec sheet (cuts and grades, formats, harvest window, storage, HS heading). Includes the new French Fries SKU |
 | 04 | Seasonality | Interactive harvest planner: pick a month to see crops in harvest and what opens next |
