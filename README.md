@@ -1,79 +1,49 @@
-# Frosty Foods — Website Redesign Concept
+# Frosty Foods — B2B Website Redesign
 
-A premium bilingual (EN/AR) redesign concept for [frosty-foods.com](https://www.frosty-foods.com/) — an Egyptian premium IQF (Individually Quick Frozen) fruits & vegetables manufacturer based in Alexandria, serving both retail consumers (B2C) and export/wholesale clients (B2B).
+A formal, export-first bilingual (EN/AR) redesign concept for [frosty-foods.com](https://www.frosty-foods.com/). Frosty Foods is a certified Egyptian manufacturer and exporter of IQF (Individually Quick Frozen) fruits and vegetables, based in Alexandria with a production facility in New Borg El Arab.
 
-**[→ View live demo](https://mohamed-sr-designer.github.io/frosty-foods-redesign/)**
+**[→ View live site](https://mohamed-sr-designer.github.io/frosty-foods-redesign/)**
 
 ---
 
-## The concept: "The Cold Room"
+## Direction
 
-The page opens bright — frost white and ice cyan — for the consumer journey. As you scroll toward the business section, the page *cools down*: an animated thermometer drops from +24°C to −18°C and the site darkens into the navy of a cold storage room, where the B2B Export Desk lives.
+Version 2 moves the site from a consumer-led story to a **global B2B trade presence**: formal, data-sheet clarity for importers, distributors, retail chains and food service. The motion is deliberately restrained — line reveals, counters, card flips, a process progress line, and animated shipping routes.
 
-The palette is derived entirely from the existing Frosty Foods logo:
+- **Palette:** from the logo. Deep navy `#061A2E` → brand navy `#0C3352`, ice `#39B9E4`, with fresh green `#3FBE23` used only as a signal colour.
+- **Type:** Manrope (display), Inter (text), IBM Plex Mono (spec labels), IBM Plex Sans Arabic (Arabic).
 
-| | |
-|---|---|
-| Navy `#0C3352` | brand depth, B2B zone |
-| Ice cyan `#39B9E4` | frozen accent, highlights |
-| Fresh green `#3FBE23` | harvest, CTAs, "in season" |
+## Sections
 
-Typography pairs **Bricolage Grotesque** (display) with **Instrument Sans** (body) for English, and **Alexandria** for Arabic — named after the company's own city.
+| # | Section | Purpose |
+|---|---|---|
+| — | Hero | The original Frosty video, kept as-is, plus key figures and a live "in season now" line driven by the current month |
+| — | Trust strip | Six certifications and an exhibitions marquee (Gulfood, SIAL, Anuga, World Food) |
+| 01 | Company | Mission, values and the New Borg El Arab facility (aerial photo) |
+| 02 | Production | IQF vs. block freezing, and a six-step process from farm to reefer, over the production-line photo |
+| 03 | Product range | The **14 new retail packs**. Each pack has a separate front and back image, with a flip per card and a global Front/Back switch. Each card opens a spec sheet (cuts and grades, formats, harvest window, storage, HS heading). Includes the new French Fries SKU |
+| 04 | Seasonality | Harvest calendar with the current month highlighted |
+| 05 | Solutions | Retail, private label, food service & bulk, industrial drums |
+| 06 | Packing & shipping | Carton formats, drum specs, container loads, incoterms |
+| 07 | Markets | Dotted world map built from the original export map, with routes from Alexandria |
+| 08 | Quality | Certifications and the quality pipeline |
+| 09 | RFQ | Order flow and a structured quotation form. Products added to "Quote" from any card are pre-selected |
+| 10 | FAQ | Buyer questions, plus a small path for consumers |
 
-## What was preserved
+## Assets
 
-Everything brand-critical from the original site is kept intact:
+- `assets/img/packs/*-front.webp` / `*-back.webp` — the 14 SKU pack renders, each split from the combined front+back artwork
+- `assets/img/factory/` — facility aerial and production-line photography
+- `assets/hero-video.mp4` — the original hero video
 
-- The original logo, hero video, and all 13 product photographs
-- All product names and their real specifications — cuts and grades (e.g. okra graded Extra / Zero / One / Two), packing sizes (400 g · 1 kg · 2.5 kg · 10 kg), and storage temperature
-- Actual harvest seasonality per product, taken from the original export table
-- The six real certifications: BRC Food, ISO 22000, ISO 9001:2015, FSSC 22000, FDA, KLBD Kosher
-- Packing possibilities and container loading figures (40 ft reefer: 2,400–2,600 cartons, etc.)
-- The full 52-country list from the original quotation form
-- Contact details, addresses, and social links
+All product names, specifications, seasons, packing and container data, certifications and contact details come from the client's existing site.
 
-## What was added
-
-The original site presented information but never asked for the sale, and it treated two very different audiences identically. This redesign separates and serves both.
-
-**Proving B2B credibility**
-
-- A dedicated **Export Desk** with an export market map and chips
-- Capability cards — private label, retail packs, food service & bulk, brine/syrup drums
-- Packing and container-loading tables with real figures
-- A 5-step order flow: inquiry → quotation → samples & contract → production & QC → shipping & docs
-- A **structured RFQ form**: company, country, business type, multi-select products, estimated volume, incoterm, packing preference, destination port — composing a formatted request to the export team
-- Named certifications with context, plus an exhibition marquee (Gulfood, SIAL, Anuga, World Food)
-
-**Clarifying the B2C journey**
-
-- Dual-path hero: "Cook it tonight" (B2C) vs "Import & distribute" (B2B)
-- Filterable product grid with detail modals showing cuts, packing, and harvest months
-- A "from our farms to your freezer" timeline
-- Kitchen tips (cook from frozen, storage, nutrition) and recipe cards
-- A split FAQ — separate tabs for home cooks and for businesses
-
-**New sections that didn't exist before**
-
-- **Harvest calendar** — a 13 × 12 grid of real growing seasons with the current month highlighted, so importers can plan bookings
-- **Live seasonality** — the top ticker and product badges compute from the current month automatically
-- **IQF vs. block freezing** — an animated comparison explaining why the technology matters
-
-## Technical notes
-
-- Single self-contained `index.html`; no build step, no dependencies
-- Full EN/AR bilingual support with RTL layout, persisted via `localStorage`
-- Scroll-triggered reveals, animated counters, and reduced-motion support
-- Responsive from 375 px upward
-
-## Running locally
+## Run locally
 
 ```bash
 npx serve . -l 4360
 ```
 
-Then open `http://localhost:4360`.
-
 ---
 
-*Redesign concept by [Mohamed Tarek](https://github.com/Mohamed-sr-Designer). Brand assets, product photography, and company information belong to Frosty Foods.*
+*Redesign concept by [Mohamed Tarek](https://github.com/Mohamed-sr-Designer). Brand assets, product packaging and company information belong to Frosty Foods.*
