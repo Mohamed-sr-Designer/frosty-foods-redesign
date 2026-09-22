@@ -254,8 +254,9 @@ html[dir="rtl"] .process-line i{transform-origin:right}
 .pc-cta h3{font-family:var(--f-display);font-size:1.5rem;line-height:1.15;margin:14px 0 12px;letter-spacing:-.02em}
 .pc-cta p{font-size:.9rem;color:rgba(255,255,255,.72)}
 .pc-cta ul{list-style:none;margin:18px 0 24px;display:grid;gap:9px;font-size:.86rem;color:rgba(255,255,255,.85)}
-.pc-cta li{display:flex;gap:10px;align-items:center}
-.pc-cta li::before{content:"";width:14px;height:1px;background:var(--ice)}
+.pc-cta li{display:flex;gap:10px;align-items:flex-start;line-height:1.45}
+.pc-cta li::before{content:"";flex:none;width:12px;height:1px;margin-top:.72em;background:var(--ice)}
+.pc-cta .btn{width:100%;justify-content:space-between;white-space:normal;text-align:start;padding:14px 18px;line-height:1.3}
 .pc-cta.alt{background:#fff;color:var(--ink);border-color:var(--line)}
 .pc-cta.alt::before{background:radial-gradient(90% 60% at 100% 0%,rgba(57,185,228,.14),transparent 60%)}
 .pc-cta.alt .mono{color:var(--navy-500)}.pc-cta.alt h3{color:var(--navy-900)}.pc-cta.alt p{color:var(--ink-70)}.pc-cta.alt ul{color:var(--ink-70)}
@@ -583,6 +584,7 @@ html[lang="ar"] .footer h5{font-family:inherit;letter-spacing:0;font-size:.85rem
   .ctn .v{font-size:1.2rem}
   .trust-certs{flex-wrap:wrap;gap:8px}.trust-certs img{width:38px;height:38px}.trust-label{flex-basis:100%;max-width:none;margin:0 0 4px}
   .face-switch{flex-wrap:wrap}
+  .pc-cta{grid-column:1/-1;padding:24px 20px}.pc-cta .btn{width:auto;align-self:flex-start}
   .figs{grid-template-columns:1fr 1fr}.fig:nth-child(2){border-inline-end:0}.fig:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.08)}
   .months-bar{grid-template-columns:repeat(6,1fr)}.mbtn:nth-child(6){border-inline-end:0}.mbtn:nth-child(-n+6){border-bottom:1px solid var(--line)}
   .pl-body{padding:18px 16px}.crop{grid-template-columns:40px 1fr}.crop .mini{grid-column:2;grid-template-columns:repeat(12,6px)}
@@ -1248,7 +1250,7 @@ function cardHTML(p){
 }
 function ctaCards(){
   const hide=filter==='all'?'':'hide';
-  return `<article class="pc pc-cta rv ${hide}"><div><span class="mono">${T('Private label','علامة خاصة')}</span><h3>${T('Your brand. Our certified lines.','علامتك التجارية. خطوطنا المعتمدة.')}</h3><p>${T('Any line in the range, packed under your artwork and specifications.','أي صنف من التشكيلة، معبأ بتصميمك ومواصفاتك.')}</p><ul><li>400 g · 1 kg · 2.5 kg · 10 kg</li><li>${T('Bilingual artwork support','دعم التصميم ثنائي اللغة')}</li><li>BRC · ISO 22000 · FSSC 22000</li></ul></div><a href="#rfq" class="btn btn-primary" data-pl="1">${T('Start a private-label project','ابدأ مشروع علامة خاصة')}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+  return `<article class="pc pc-cta rv ${hide}"><div><span class="mono">${T('Private label','علامة خاصة')}</span><h3>${T('Your brand. Our certified lines.','علامتك التجارية. خطوطنا المعتمدة.')}</h3><p>${T('Any line in the range, packed under your artwork and specifications.','أي صنف من التشكيلة، معبأ بتصميمك ومواصفاتك.')}</p><ul><li>400 g · 1 kg · 2.5 kg · 10 kg</li><li>${T('Bilingual artwork support','دعم التصميم ثنائي اللغة')}</li><li>BRC · ISO 22000 · FSSC 22000</li></ul></div><a href="#rfq" class="btn btn-primary" data-pl="1">${T('Start a project','ابدأ مشروع علامة خاصة')}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
   <article class="pc pc-cta alt rv ${hide}"><div><span class="mono">${T('Food service & bulk','الجملة وخدمات الطعام')}</span><h3>${T('Catering and bulk formats.','صيغ للجملة والمطابخ المركزية.')}</h3><p>${T('The same IQF quality in formats built for kitchens and processors.','نفس جودة IQF بصيغ مصممة للمطابخ والمصانع.')}</p><ul><li>4 × 2.5 kg · 1 × 10 kg</li><li>${T('Brine & syrup drums — 225 kg','براميل محلول ملحي وشراب — 225 كجم')}</li><li>${T('Mixed-product containers','حاويات مشكّلة من عدة أصناف')}</li></ul></div><a href="#logistics" class="btn btn-line">${T('See packing specs','مواصفات التعبئة')}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>`;
 }
 function renderGrid(){
