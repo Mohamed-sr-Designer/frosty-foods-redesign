@@ -402,23 +402,37 @@ html[lang="ar"] .mbtn{font-family:inherit;text-transform:none;font-size:.72rem}
 /* ---------- RFQ ---------- */
 .rfq{background:var(--paper);padding-top:0}
 .rfq-shell{display:grid;grid-template-columns:.9fr 1.3fr;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lift);background:#fff}
-.rfq-side{background:var(--navy-900);color:#fff;padding:clamp(30px,4vw,52px);display:flex;flex-direction:column;gap:30px;position:relative;overflow:hidden}
+.rfq-side{background:var(--navy-900);color:#fff;padding:clamp(28px,3.4vw,44px);display:flex;flex-direction:column;gap:22px;position:relative;overflow:hidden}
 .rfq-side::before{content:"";position:absolute;inset:0;background:url(assets/img/factory/facility-aerial.webp) center/cover;opacity:.12}
 .rfq-side>*{position:relative}
 .rfq-side .h2{color:#fff;font-size:clamp(1.8rem,2.6vw,2.4rem)}
 .flow{display:grid;gap:0;counter-reset:f}
-.flow li{list-style:none;display:grid;grid-template-columns:36px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line-dark);position:relative}
+.flow li{list-style:none;display:grid;grid-template-columns:30px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line-dark);position:relative}
 .flow .n{font-family:var(--f-mono);font-size:.74rem;color:var(--ice);padding-top:2px}
 .flow b{font-family:var(--f-display);font-size:.98rem}
-.flow p{font-size:.84rem;color:rgba(255,255,255,.6)}
-.direct{display:grid;gap:10px;margin-top:auto}
-.direct a{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line-dark);border-radius:var(--r);font-weight:600;font-size:.92rem;transition:background .25s,border-color .25s}
+.flow p{display:none}
+.flow li{align-items:center}
+.direct{display:grid;grid-template-columns:1fr;gap:8px;margin-top:auto}
+.direct a{display:flex;align-items:center;gap:12px;padding:11px 14px;font-size:.88rem;border:1px solid var(--line-dark);border-radius:var(--r);font-weight:600;font-size:.92rem;transition:background .25s,border-color .25s}
 .direct a:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3)}
 .direct svg{width:18px;height:18px;color:var(--ice);flex:none}
 .rfq-form{padding:clamp(28px,4vw,52px);display:grid;gap:18px}
 .rfq-form .form-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--line)}
 .rfq-form .form-head b{font-family:var(--f-display);font-size:1.3rem;color:var(--navy-900)}
 .rfq-form .form-head span{font-size:.82rem;color:var(--ink-50)}
+.stepper{display:grid;grid-template-columns:1fr 1fr;gap:10px;list-style:none}
+.stepper li{position:relative;overflow:hidden;display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:var(--r);border:1px solid var(--line);font-size:.84rem;font-weight:600;color:var(--ink-50);cursor:pointer;transition:border-color .3s,color .3s}
+.stepper li i{font-style:normal;flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--paper);font-family:var(--f-mono);font-size:.72rem;transition:background .3s,color .3s}
+.stepper li::after{content:"";position:absolute;bottom:0;inset-inline-start:0;height:2px;width:100%;background:var(--ice);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+html[dir="rtl"] .stepper li::after{transform-origin:right}
+.stepper li.on{border-color:var(--navy);color:var(--navy-900)}.stepper li.on::after{transform:scaleX(1)}
+.stepper li.on i{background:var(--navy);color:#fff}
+.stepper li.done{color:var(--navy-900)}.stepper li.done i{background:var(--green-600);color:#fff;font-size:0}.stepper li.done i::before{content:"✓";font-size:.78rem}
+.fstep{display:none;gap:18px}.fstep.on{display:grid;animation:fadeUp .45s var(--ease)}
+.step-nav{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-top:8px}.step-nav .btn{border:0}.step-nav p{font-size:.8rem;color:var(--ink-50)}
+.rfq-form{display:flex;flex-direction:column}
+.fstep.on{display:flex;flex-direction:column;flex:1}
+.fstep .step-nav{margin-top:auto;padding-top:22px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .fld{display:grid;gap:7px}
 .fld label{font-size:.78rem;font-weight:600;color:var(--ink-70);letter-spacing:.01em}
@@ -947,7 +961,12 @@ html[lang="ar"] .footer h5{font-family:inherit;letter-spacing:0;font-size:.85rem
         </div>
       </div>
       <form class="rfq-form" id="rfqForm" novalidate>
-        <div class="form-head"><b data-ar="نموذج طلب عرض السعر">Quotation request</b><span data-ar="الحقول المعلّمة * مطلوبة">Fields marked * are required</span></div>
+        <div class="form-head"><b data-ar="نموذج طلب عرض السعر">Quotation request</b><span id="stepLbl">Step 1 of 2</span></div>
+        <ol class="stepper" id="stepper">
+          <li class="on" data-s="1"><i>1</i><span data-ar="الشركة والتواصل">Company &amp; contact</span></li>
+          <li data-s="2"><i>2</i><span data-ar="تفاصيل الطلب">Order details</span></li>
+        </ol>
+        <div class="fstep on" data-step="1">
         <div class="row2">
           <div class="fld"><label for="fName" data-ar="اسم المسؤول *">Contact name *</label><input id="fName" required autocomplete="name"></div>
           <div class="fld"><label for="fCompany" data-ar="الشركة *">Company *</label><input id="fCompany" required autocomplete="organization"></div>
@@ -969,6 +988,9 @@ html[lang="ar"] .footer h5{font-family:inherit;letter-spacing:0;font-size:.85rem
               <option value="Private label" data-ar="مشروع علامة خاصة">Private label project</option>
             </select></div>
         </div>
+          <div class="step-nav"><button type="button" class="btn btn-navy" id="toStep2"><span data-ar="التالي: تفاصيل الطلب">Next: order details</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p data-ar="الخطوة التالية: المنتجات والكميات والتعبئة.">Next: products, volumes and packing.</p></div>
+        </div>
+        <div class="fstep" data-step="2">
         <div class="fld"><label data-ar="المنتجات المطلوبة *">Products of interest *</label><div class="chips" id="chips"></div></div>
         <div class="row2">
           <div class="fld"><label for="fQty" data-ar="الكمية التقديرية">Estimated volume</label>
@@ -1001,11 +1023,13 @@ html[lang="ar"] .footer h5{font-family:inherit;letter-spacing:0;font-size:.85rem
           <div class="fld"><label for="fPort" data-ar="ميناء الوصول">Destination port</label><input id="fPort"></div>
         </div>
         <div class="fld"><label for="fMsg" data-ar="تفاصيل إضافية">Additional details</label><textarea id="fMsg" data-ph-ar="المواصفات، الدرجات، مواعيد التسليم…" placeholder="Specs, grades, delivery windows…"></textarea></div>
-        <div class="toast" id="toast"></div>
         <div class="submit">
+          <button type="button" class="btn btn-line" id="toStep1"><span data-ar="رجوع">Back</span></button>
           <button type="submit" class="btn btn-navy"><span data-ar="أرسل الطلب">Send request</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           <p data-ar="يفتح تطبيق البريد برسالة منسقة موجهة لفريق التصدير.">Opens your email client with a structured RFQ addressed to our export team.</p>
         </div>
+        </div>
+        <div class="toast" id="toast"></div>
       </form>
     </div>
   </div>
@@ -1197,7 +1221,7 @@ function applyLang(l){
   document.getElementById('lEn').classList.toggle('on',l==='en');
   document.getElementById('lAr').classList.toggle('on',l==='ar');
   document.title=l==='ar'?'فروستي فودز — خضروات وفواكه مجمدة IQF من مصر إلى العالم':'Frosty Foods — IQF Fruits & Vegetables from Egypt to the World';
-  renderSeason();renderGrid();renderCal();renderRegions();renderFaq();renderChips();renderFooter();renderCountries();renderMarquee();
+  renderSeason();renderGrid();renderCal();renderRegions();renderFaq();setStepText();renderChips();renderFooter();renderCountries();renderMarquee();
   if(openId)openModal(openId);
 }
 document.getElementById('lEn').onclick=()=>applyLang('en');
@@ -1427,13 +1451,32 @@ document.getElementById('rgList').addEventListener('click',e=>{const b=e.target.
   new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){box.classList.add('in');place();o.disconnect()}}),{threshold:.3}).observe(svg);
 })();
 
+/* ================= RFQ STEPS ================= */
+let curStep=1;
+const STEP1=['fName','fCompany','fEmail','fCountry','fType'];
+function checkStep1(){let ok=true;STEP1.forEach(id=>{const el=document.getElementById(id),bad=!el.value.trim()||(el.type==='email'&&!/^\S+@\S+\.\S+$/.test(el.value));el.parentElement.classList.toggle('err',bad);if(bad)ok=false});return ok}
+function setStepText(){document.getElementById('stepLbl').textContent=T('Step '+curStep+' of 2','الخطوة '+curStep+' من 2')}
+function goStep(n){
+  curStep=n;const form=document.getElementById('rfqForm');
+  form.querySelectorAll('.fstep').forEach(s=>s.classList.toggle('on',+s.dataset.step===n));
+  document.querySelectorAll('#stepper li').forEach(li=>{const s=+li.dataset.s;li.classList.toggle('on',s===n);li.classList.toggle('done',s<n)});
+  document.getElementById('toast').className='toast';setStepText();
+  const top=form.getBoundingClientRect().top;if(top<80)scrollBy({top:top-110,behavior:'smooth'});
+  const f=form.querySelector('.fstep.on :is(input,select,.chip)');if(f&&n===2&&!basket.size)f.focus({preventScroll:true});
+}
+function step1Fail(){const t=document.getElementById('toast');t.className='toast show bad';t.textContent=T('Please complete your company and contact details first.','يرجى إكمال بيانات الشركة والتواصل أولًا.')}
+document.getElementById('toStep2').onclick=()=>{checkStep1()?goStep(2):step1Fail()};
+document.getElementById('toStep1').onclick=()=>goStep(1);
+document.getElementById('stepper').addEventListener('click',e=>{const li=e.target.closest('li');if(!li)return;const s=+li.dataset.s;if(s===1)goStep(1);else checkStep1()?goStep(2):step1Fail()});
+
 /* ================= RFQ SUBMIT ================= */
 document.getElementById('rfqForm').addEventListener('submit',e=>{
   e.preventDefault();
   const q=id=>document.getElementById(id);const toast=q('toast');let ok=true;
   ['fName','fCompany','fEmail','fCountry','fType'].forEach(id=>{const el=q(id),bad=!el.value.trim()||(el.type==='email'&&!/^\S+@\S+\.\S+$/.test(el.value));el.parentElement.classList.toggle('err',bad);if(bad)ok=false});
+  if(!ok){goStep(1);step1Fail();return}
   if(!basket.size){q('chips').classList.add('err');ok=false}
-  if(!ok){toast.className='toast show bad';toast.textContent=T('Please complete the required fields and choose at least one product.','يرجى إكمال الحقول المطلوبة واختيار منتج واحد على الأقل.');return}
+  if(!ok){toast.className='toast show bad';toast.textContent=T('Please choose at least one product.','يرجى اختيار منتج واحد على الأقل.');return}
   const prods=P.filter(p=>basket.has(p.id)).map(p=>p.en).join(', ');
   const val=id=>q(id).value||'—';
   const body=`REQUEST FOR QUOTATION — Frosty Foods\n\nContact: ${val('fName')}\nCompany: ${val('fCompany')}\nEmail: ${val('fEmail')}\nPhone: ${val('fPhone')}\nCountry: ${val('fCountry')}\nBusiness type: ${val('fType')}\n\nProducts: ${prods}\nEstimated volume: ${val('fQty')}\nIncoterm: ${val('fInco')}\nPacking: ${val('fPack')}\nDestination port: ${val('fPort')}\n\nDetails:\n${val('fMsg')}`;
