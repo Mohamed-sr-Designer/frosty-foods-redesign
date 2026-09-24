@@ -51,6 +51,8 @@
     if (!o || typeof o !== 'object') return base;
     for (const k in o) {
       const v = o[k];
+      // PHP encodes empty objects as [] — never let that replace an object slot
+      if (Array.isArray(v) && !v.length && base[k] && typeof base[k] === 'object' && !Array.isArray(base[k])) continue;
       if (v && typeof v === 'object' && !Array.isArray(v) && base[k] && typeof base[k] === 'object' && !Array.isArray(base[k])) merge(base[k], v);
       else base[k] = v;
     }
